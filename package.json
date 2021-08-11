@@ -1,0 +1,28 @@
+{
+  "name": "lom-compiler",
+  "version": "0.1.0",
+  "description": "Compiler to generate playable HTML wireframe site from layout description model (LOM)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create": "npm run build && npm run test",
+    "build": "tsc -p .",
+    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/opentech-ux/lom-compiler"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Pierre-Louis JAEGER",
+    "email": "pjr@devalgo.com"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "^16.4.13",
+    "nodemon": "^2.0.12",
+    "ts-node": "^10.2.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {}
+}
