@@ -1,6 +1,6 @@
 {
-  "name": "lom-compiler",
-  "version": "0.1.0",
+  "name": "@opentech-ux/lom-compiler",
+  "version": "0.0.1",
   "description": "Compiler to generate playable HTML wireframe site from layout description model (LOM)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,11 +12,21 @@
     "type": "git",
     "url": "https://github.com/opentech-ux/lom-compiler"
   },
-  "keywords": [],
-  "author": {
-    "name": "Pierre-Louis JAEGER",
-    "email": "pjr@devalgo.com"
-  },
+  "keywords": [
+    "LOM",
+    "wireframe",
+    "compiler"
+  ],
+  "maintainers": [
+    {
+      "name": "Pierre-Louis JAEGER",
+      "email": "pjr@devalgo.com"
+    },
+    {
+      "name": "Ruben CONDE",
+      "email": "ruben.conde@ux-key.com"
+    }
+  ],
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/node": "^16.4.13",
