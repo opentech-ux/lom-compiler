@@ -7,7 +7,7 @@
 # Ignore npm generated folders
 /node_modules/
 /generated-src/
-/lib/
+/build/
 
 !.gitignore
 !.gitattributes

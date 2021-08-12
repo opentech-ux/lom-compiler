@@ -8,10 +8,10 @@
       "dom"
     ],
     "declaration": true,
-    "outDir": "lib",
+    "outDir": "build/lib",
     "rootDirs": [
       "src",
-      "generated-src"
+      "build/generated-src"
     ],
     "strict": true,
     "types": [

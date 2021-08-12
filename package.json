@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "Compiler to generate playable HTML wireframe site from layout description model (LOM)",
   "scripts": {
-    "clean": "rimraf ./lib & rimraf ./generated-src",
+    "clean": "rimraf ./build",
     "compile-ts": "tsc -p .",
-    "generate-model": "json2ts -i ./schemas/ -o ./generated-src/",
+    "generate-model": "json2ts -i ./schemas/ -o ./build/generated-src/",
     "build": "npm run generate-model && npm run compile-ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "create": "npm run build && npm run test",
@@ -33,11 +33,10 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/node": "^16.4.13",
+   "json-schema-to-typescript": "^10.1.4",
     "nodemon": "^2.0.12",
+    "rimraf": "^3.0.2",
     "ts-node": "^10.2.0",
-    "typescript": "^4.3.5",
-    "json-schema-to-typescript": "^10.1.4",
-    "rimraf": "^3.0.2"
-  },
-  "dependencies": {}
+    "typescript": "^4.3.5"
+  }
 }
