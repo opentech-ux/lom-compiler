@@ -9,7 +9,10 @@
     ],
     "declaration": true,
     "outDir": "lib",
-    "rootDir": "src",
+    "rootDirs": [
+      "src",
+      "generated-src"
+    ],
     "strict": true,
     "types": [
       "node"
