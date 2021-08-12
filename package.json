@@ -44,5 +44,8 @@
     "rimraf": "^3.0.2",
     "ts-node": "^10.2.0",
     "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "create-html-element": "^3.0.0"
   }
 }
