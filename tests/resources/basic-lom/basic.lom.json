@@ -1,0 +1,67 @@
+{
+  "rootPath": "/",
+  "pageWidth": 1920,
+  "pageHeight": 1080,
+  "loms": {
+    "": {
+      "zoneId": "rootZone",
+      "bounds": {
+        "x": 100,
+        "y": 100,
+        "width": 800,
+        "height": 600
+      },
+      "children": [
+        {
+          "bounds": {
+            "x": 150,
+            "y": 10,
+            "width": 300,
+            "height": 20
+          },
+          "link": "otherPage",
+          "style": {
+            "background": "#90ff90",
+            "border": "2px solid red"
+          }
+        },
+        {
+          "bounds": {
+            "x": 150,
+            "y": 200,
+            "width": 300,
+            "height": 20
+          },
+          "link": "/",
+          "style": {
+            "background": "#bbbbbb",
+            "border": "2px dashed blue"
+          }
+        }
+      ]
+    },
+    "otherPage": {
+      "bounds": {
+        "x": 50,
+        "y": 50,
+        "width": 200,
+        "height": 200
+      },
+      "style": {
+        "background": "yellow",
+        "border": "none"
+      },
+      "children": [
+        {
+          "bounds": {
+            "x": 20,
+            "y": 20,
+            "width": 50,
+            "height": 50
+          },
+          "link": "/"
+        }
+      ]
+    }
+  }
+}

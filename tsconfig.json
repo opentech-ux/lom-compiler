@@ -16,7 +16,8 @@
     "strict": true,
     "types": [
       "node",
-      "mocha"
+      "mocha",
+      "chai"
     ],
     "esModuleInterop": true,
     "resolveJsonModule": true
