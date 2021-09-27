@@ -48,10 +48,10 @@
     "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test",
     "create": "npm run clean && npm run build && npm run test",
     "generate-model": "json2ts -i ./schemas/ -o ./build/generated-src/",
-    "prettier:check": "prettier \"./**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore -l ",
     "prettier:format": "prettier \"./**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore -l --write",
     "refresh": "rimraf ./node_modules ./package-lock.json && npm install",
-    "test": "mocha -r ts-node/register tests/**/*.test.ts"
+    "test:mocha": "mocha -r ts-node/register tests/**/*.test.ts",
+    "test:prettier": "prettier \"./**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore -l "
   },
   "version": "0.0.1"
 }
