@@ -1,52 +1,52 @@
 {
-  "name": "@opentech-ux/lom-compiler",
-  "version": "0.0.1",
-  "description": "Compiler to generate playable HTML wireframe site from layout description model (LOM)",
-  "scripts": {
-    "clean": "rimraf ./build",
-    "compile-ts": "tsc -p .",
-    "generate-model": "json2ts -i ./schemas/ -o ./build/generated-src/",
-    "build": "npm run generate-model && npm run compile-ts",
-    "test": "mocha -r ts-node/register tests/**/*.test.ts",
-    "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test",
-    "create": "npm run clean && npm run build && npm run test",
-    "refresh": "rimraf ./node_modules ./package-lock.json && npm install"
+  "dependencies": {
+    "create-html-element": "^3.0.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/opentech-ux/lom-compiler"
+  "description": "Compiler to generate playable HTML wireframe site from layout description model (LOM)",
+  "devDependencies": {
+    "@types/chai": "^4.2.22",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.10.1",
+    "chai": "^4.3.4",
+    "chai-files": "^1.4.0",
+    "json-schema-to-typescript": "^10.1.5",
+    "mocha": "^9.1.2",
+    "nodemon": "^2.0.13",
+    "nyc": "^15.1.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
   },
   "keywords": [
     "LOM",
     "wireframe",
     "compiler"
   ],
+  "license": "Apache-2.0",
   "maintainers": [
     {
-      "name": "Pierre-Louis JAEGER",
-      "email": "pjr@devalgo.com"
+      "email": "pjr@devalgo.com",
+      "name": "Pierre-Louis JAEGER"
     },
     {
-      "name": "Ruben CONDE",
-      "email": "ruben.conde@ux-key.com"
+      "email": "ruben.conde@ux-key.com",
+      "name": "Ruben CONDE"
     }
   ],
-  "license": "Apache-2.0",
-  "devDependencies": {
-    "@types/chai": "^4.2.21",
-    "@types/mocha": "^9.0.0",
-    "@types/node": "^16.4.13",
-    "chai": "^4.3.4",
-    "chai-files": "^1.4.0",
-    "json-schema-to-typescript": "^10.1.4",
-    "mocha": "^9.0.3",
-    "nodemon": "^2.0.12",
-    "nyc": "^15.1.0",
-    "rimraf": "^3.0.2",
-    "ts-node": "^10.2.0",
-    "typescript": "^4.3.5"
+  "name": "@opentech-ux/lom-compiler",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/opentech-ux/lom-compiler"
   },
-  "dependencies": {
-    "create-html-element": "^3.0.0"
-  }
+  "scripts": {
+    "build": "npm run generate-model && npm run compile-ts",
+    "clean": "rimraf ./build",
+    "compile-ts": "tsc -p .",
+    "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test",
+    "create": "npm run clean && npm run build && npm run test",
+    "generate-model": "json2ts -i ./schemas/ -o ./build/generated-src/",
+    "refresh": "rimraf ./node_modules ./package-lock.json && npm install",
+    "test": "mocha -r ts-node/register tests/**/*.test.ts"
+  },
+  "version": "0.0.1"
 }
