@@ -5,9 +5,9 @@
 *.iml
 
 # Ignore npm generated folders
-/node_modules/
-/generated-src/
-/build/
+/node_modules
+/generated-src
+/build
 
 !.gitignore
 !.gitattributes
