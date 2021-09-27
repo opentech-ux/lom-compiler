@@ -17,6 +17,7 @@
     "mocha": "^9.1.2",
     "nodemon": "^2.0.13",
     "nyc": "^15.1.0",
+    "prettier": "2.4.1",
     "rimraf": "^3.0.2",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3"
@@ -47,6 +48,8 @@
     "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test",
     "create": "npm run clean && npm run build && npm run test",
     "generate-model": "json2ts -i ./schemas/ -o ./build/generated-src/",
+    "prettier:check": "prettier \"./**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore -l ",
+    "prettier:format": "prettier \"./**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore -l --write",
     "refresh": "rimraf ./node_modules ./package-lock.json && npm install",
     "test": "mocha -r ts-node/register tests/**/*.test.ts"
   },
