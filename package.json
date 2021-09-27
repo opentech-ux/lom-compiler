@@ -1,4 +1,8 @@
 {
+  "author": "Pierre-Louis JAEGER <pjr@devalgo.com>",
+  "bugs": {
+    "url": "https://github.com/opentech-ux/lom-compiler/issues"
+  },
   "dependencies": {
     "create-html-element": "^3.0.0"
   },
@@ -17,6 +21,10 @@
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3"
   },
+  "directories": {
+    "test": "tests"
+  },
+  "homepage": "https://github.com/opentech-ux/lom-compiler#readme",
   "keywords": [
     "LOM",
     "wireframe",
@@ -24,19 +32,13 @@
   ],
   "license": "Apache-2.0",
   "maintainers": [
-    {
-      "email": "pjr@devalgo.com",
-      "name": "Pierre-Louis JAEGER"
-    },
-    {
-      "email": "ruben.conde@ux-key.com",
-      "name": "Ruben CONDE"
-    }
+    "Pierre-Louis JAEGER <pjr@devalgo.com>",
+    "Ruben CONDE <ruben.conde@ux-key.com>"
   ],
   "name": "@opentech-ux/lom-compiler",
   "repository": {
     "type": "git",
-    "url": "https://github.com/opentech-ux/lom-compiler"
+    "url": "git+https://github.com/opentech-ux/lom-compiler.git"
   },
   "scripts": {
     "build": "npm run generate-model && npm run compile-ts",

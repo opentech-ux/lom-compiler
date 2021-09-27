@@ -13,3 +13,4 @@
 !.gitattributes
 !.gitkeep
 !.gitlab-ci.yml
+!.github/workflows/
