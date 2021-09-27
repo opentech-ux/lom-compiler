@@ -34,7 +34,7 @@ jobs:
            if: steps.node-cache.outputs.cache-hit != 'true'
            run: npm install
 
-    build:
+   build:
       if: github.event.pull_request.merged == true || github.event_name == 'push'
       needs: dependencies
       runs-on: ubuntu-latest
