@@ -2,11 +2,14 @@
 *.iml
 
 # Ignore npm generated folders
+.nyc_output/
 node_modules/
 build/
 
+
 # IDE folders
 .vscode/
+.github/
 
 
 !.gitignore

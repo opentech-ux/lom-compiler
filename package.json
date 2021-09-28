@@ -40,7 +40,7 @@
     "Pierre-Louis JAEGER <pjr@devalgo.com>",
     "Ruben CONDE <ruben.conde@ux-key.com>"
   ],
-  "name": "@opentech-ux/lom-compiler-dev",
+  "name": "@opentech-ux/lom-compiler",
   "publishConfig": {
     "access": "public"
   },
@@ -54,13 +54,13 @@
     "build:ts": "tsc -p .",
     "deps:refresh": "rimraf ./node_modules ./package-lock.json && npm install",
     "model:generate": "json2ts -i ./schemas/ -o ./build/json-schema/",
-    "pkg:create": "npm run build:clean && npm run build && npm run test:mocha",
+    "pkg:create": "npm run build:clean && npm run build && npm run test",
     "pkg:publish": "npm run pkg:create && npm version patch && npm publish",
     "prettier:format": "prettier \"./**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore -l --write",
-    "test:coverage": "nyc -r html -e .ts -x \"tests/*.test.ts\" npm run test:mocha",
+    "test:coverage": "nyc --report-dir .nyc_output/html -r html -x \"tests/*.test.ts\" npm run test:mocha",
     "test:mocha": "mocha -r ts-node/register tests/**/*.test.ts",
-    "test:prettier": "prettier \"./**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore -l "
+    "test:prettier": "prettier \"./**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore -l"
   },
   "types": "build/lib/src/LomCompiler.d.ts",
-  "version": "0.0.1"
+  "version": "0.0.0"
 }
