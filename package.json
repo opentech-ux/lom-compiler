@@ -25,6 +25,9 @@
   "directories": {
     "test": "tests"
   },
+  "files": [
+    "build/**/*"
+  ],
   "homepage": "https://github.com/opentech-ux/lom-compiler#readme",
   "keywords": [
     "LOM",
@@ -32,26 +35,32 @@
     "compiler"
   ],
   "license": "Apache-2.0",
+  "main": "build/lib/src/LomCompiler.js",
   "maintainers": [
     "Pierre-Louis JAEGER <pjr@devalgo.com>",
     "Ruben CONDE <ruben.conde@ux-key.com>"
   ],
-  "name": "@opentech-ux/lom-compiler",
+  "name": "@opentech-ux/lom-compiler-test",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/opentech-ux/lom-compiler.git"
   },
   "scripts": {
-    "build": "npm run generate-model && npm run compile-ts",
-    "clean": "rimraf ./build",
-    "compile-ts": "tsc -p .",
-    "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test",
-    "create": "npm run clean && npm run build && npm run test",
-    "generate-model": "json2ts -i ./schemas/ -o ./build/generated-src/",
+    "build": "npm run model:generate && npm run build:ts",
+    "build:clean": "rimraf ./build",
+    "build:ts": "tsc -p .",
+    "deps:refresh": "rimraf ./node_modules ./package-lock.json && npm install",
+    "model:generate": "json2ts -i ./schemas/ -o ./build/json-schema/",
+    "pkg:create": "npm run build:clean && npm run build && npm run test:mocha",
+    "pkg:publish": "npm run pkg:create && npm version patch && npm publish",
     "prettier:format": "prettier \"./**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore -l --write",
-    "refresh": "rimraf ./node_modules ./package-lock.json && npm install",
+    "test:coverage": "nyc -r html -e .ts -x \"tests/*.test.ts\" npm run test:mocha",
     "test:mocha": "mocha -r ts-node/register tests/**/*.test.ts",
     "test:prettier": "prettier \"./**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore -l "
   },
-  "version": "0.0.1"
+  "types": "build/lib/src/LomCompiler.d.ts",
+  "version": "0.0.0"
 }
