@@ -44,7 +44,7 @@ describe('LOM compiler tests', () => {
 
       new LomCompiler(BASE_DIR)
          .source('../../tests/resources/script-lom/script.lom.json')
-         .outputDir('script-lom')
+         .outputDir(folderName)
          .compile();
 
       expect(file(`${BASE_DIR}/${folderName}/index.html`)).to.exist;
@@ -60,7 +60,7 @@ describe('LOM compiler tests', () => {
 
       new LomCompiler(BASE_DIR)
          .source('../../tests/resources/multi-lom')
-         .outputDir('multi-lom')
+         .outputDir(folderName)
          .compile();
 
       expect(file(`${BASE_DIR}/${folderName}/index.html`)).to.exist;
@@ -69,5 +69,6 @@ describe('LOM compiler tests', () => {
       expect(file(`${BASE_DIR}/${folderName}/index/index.html`)).to.exist;
       expect(file(`${BASE_DIR}/${folderName}/location/index.html`)).to.exist;
       expect(file(`${BASE_DIR}/${folderName}/price/index.html`)).to.exist;
+      expect(file(`${BASE_DIR}/${folderName}/otherPage/index.html`)).to.exist;
    });
 });
