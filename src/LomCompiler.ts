@@ -6,6 +6,7 @@ import { ILomCompiler } from './interfaces/LomCompiler.interface';
 import { Zone } from './lom.schema';
 import { LomModel } from './LomModel';
 import './LomPath';
+
 /**
  * @description Main class to compile the LOM data.
  *
@@ -59,13 +60,19 @@ export class LomCompiler implements ILomCompiler {
    }
 
    public source(...sourceFiles: string[]): LomCompiler {
-      sourceFiles.forEach((file) => {
-         file = fs.realpathSync(path.resolve(this._baseDirectory, file));
+      sourceFiles.forEach((filePath) => {
+         const realFilePath = fs.realpathSync(path.resolve(this._baseDirectory, filePath));
+         const filePathIsDirectory = fs.lstatSync(realFilePath).isDirectory();
 
-         if (fs.lstatSync(file).isDirectory()) {
-            this._sourceFiles.push(...fs.readdirSync(file).filter((f) => f.endsWith('.json')));
+         if (filePathIsDirectory) {
+            this._sourceFiles.push(
+               ...fs
+                  .readdirSync(realFilePath)
+                  .filter((file) => file.endsWith('.json'))
+                  .map((json) => fs.realpathSync(path.resolve(realFilePath, json)))
+            );
          } else {
-            this._sourceFiles.push(file);
+            this._sourceFiles.push(realFilePath);
          }
       });
 
