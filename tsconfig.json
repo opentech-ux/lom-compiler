@@ -1,25 +1,25 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "declaration": true,
+    "esModuleInterop": true,
     "lib": [
       "es6",
       "es2015",
       "dom"
     ],
-    "declaration": true,
+    "module": "commonjs",
     "outDir": "build/lib",
+    "resolveJsonModule": true,
     "rootDirs": [
       "src",
       "build/generated-src"
     ],
     "strict": true,
+    "target": "es5",
     "types": [
       "node",
       "mocha",
       "chai"
-    ],
-    "esModuleInterop": true,
-    "resolveJsonModule": true
+    ]
   }
 }
