@@ -40,7 +40,7 @@
     "Pierre-Louis JAEGER <pjr@devalgo.com>",
     "Ruben CONDE <ruben.conde@ux-key.com>"
   ],
-  "name": "@opentech-ux/lom-compiler-test",
+  "name": "@opentech-ux/lom-compiler-dev",
   "publishConfig": {
     "access": "public"
   },
