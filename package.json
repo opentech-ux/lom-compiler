@@ -76,5 +76,5 @@
     "test:prettier": "prettier \"./**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore -l"
   },
   "types": "build/lib/LomCompiler.d.ts",
-  "version": "0.1.0"
+  "version": "0.1.1"
 }
