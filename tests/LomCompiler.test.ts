@@ -1,50 +1,74 @@
-import { LomCompiler } from "../src/LomCompiler";
+import { LomCompiler } from '../src/LomCompiler';
 
-const chai = require("chai");
-const chaiFiles = require("chai-files");
+const chai = require('chai');
+const chaiFiles = require('chai-files');
+
 chai.use(chaiFiles);
 
 const expect = chai.expect;
 const file = chaiFiles.file;
-const dir = chaiFiles.dir;
 
-describe("LOM compiler tests", () => {
-  it("should fail on non existent basedir", () => {
-    const invalidBasedir = "non/existent/path";
-    expect(() => new LomCompiler(invalidBasedir)).to.throw(
-      `${invalidBasedir} is not a valid directory`
-    );
-  });
+const BASE_DIR = 'build/test-output';
 
-  it("should fail on non directory basedir", () => {
-    const invalidBasedir = "package.json";
-    expect(() => new LomCompiler(invalidBasedir)).to.throw(
-      `${invalidBasedir} is not a valid directory`
-    );
-  });
+describe('LOM compiler tests', () => {
+   it('Should fail on non existent BaseDir', () => {
+      const invalidBaseDir = 'non/existent/path';
 
-  it("should generate some HTML files", () => {
-    const outputDir = "build/test-output/basic-lom";
-    new LomCompiler()
-      .source("tests/resources/basic-lom/basic.lom.json")
-      .outputDir(outputDir)
-      .compile();
+      expect(() => new LomCompiler(invalidBaseDir)).to.throw(
+         `${invalidBaseDir} is not a valid directory.`
+      );
+   });
 
-    expect(file(`${outputDir}/index.html`)).to.exist;
-    expect(file(`${outputDir}/otherPage/index.html`)).to.exist;
-  });
+   it('Should fail on non directory BaseDir', () => {
+      const invalidBaseDir = 'package.json';
 
-  it("should generate some HTML files", () => {
-    const outputDir = "build/test-output/script-lom";
-    new LomCompiler()
-      .source("tests/resources/basic-lom/script.lom.json")
-      .outputDir(outputDir)
-      .compile();
+      expect(() => new LomCompiler(invalidBaseDir)).to.throw(
+         `${invalidBaseDir} is not a valid directory.`
+      );
+   });
 
-    expect(file(`${outputDir}/index.html`)).to.exist;
-    expect(file(`${outputDir}/category/index.html`)).to.exist;
-    expect(file(`${outputDir}/contact/index.html`)).to.exist;
-    expect(file(`${outputDir}/index/index.html`)).to.exist;
-    expect(file(`${outputDir}/listing/index.html`)).to.exist;
-  });
+   it('Should generate some HTML files (without BaseDir)', () => {
+      const folderName = 'basic-lom';
+
+      new LomCompiler()
+         .source('tests/resources/basic-lom/basic.lom.json')
+         .outputDir(`${BASE_DIR}/${folderName}`)
+         .compile();
+
+      expect(file(`${BASE_DIR}/${folderName}/index.html`)).to.exist;
+      expect(file(`${BASE_DIR}/${folderName}/otherPage/index.html`)).to.exist;
+   });
+
+   it('Should generate some HTML files (with BaseDir)', () => {
+      const folderName = 'script-lom';
+
+      new LomCompiler(BASE_DIR)
+         .source('../../tests/resources/script-lom/script.lom.json')
+         .outputDir(folderName)
+         .compile();
+
+      expect(file(`${BASE_DIR}/${folderName}/index.html`)).to.exist;
+      expect(file(`${BASE_DIR}/${folderName}/about/index.html`)).to.exist;
+      expect(file(`${BASE_DIR}/${folderName}/contact/index.html`)).to.exist;
+      expect(file(`${BASE_DIR}/${folderName}/index/index.html`)).to.exist;
+      expect(file(`${BASE_DIR}/${folderName}/location/index.html`)).to.exist;
+      expect(file(`${BASE_DIR}/${folderName}/price/index.html`)).to.exist;
+   });
+
+   it('Should generate some HTML files (with multiple json files)', () => {
+      const folderName = 'multi-lom';
+
+      new LomCompiler(BASE_DIR)
+         .source('../../tests/resources/multi-lom')
+         .outputDir(folderName)
+         .compile();
+
+      expect(file(`${BASE_DIR}/${folderName}/index.html`)).to.exist;
+      expect(file(`${BASE_DIR}/${folderName}/about/index.html`)).to.exist;
+      expect(file(`${BASE_DIR}/${folderName}/contact/index.html`)).to.exist;
+      expect(file(`${BASE_DIR}/${folderName}/index/index.html`)).to.exist;
+      expect(file(`${BASE_DIR}/${folderName}/location/index.html`)).to.exist;
+      expect(file(`${BASE_DIR}/${folderName}/price/index.html`)).to.exist;
+      expect(file(`${BASE_DIR}/${folderName}/otherPage/index.html`)).to.exist;
+   });
 });

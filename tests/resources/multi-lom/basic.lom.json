@@ -1,0 +1,67 @@
+{
+  "loms": {
+    "": {
+      "bounds": {
+        "height": 600,
+        "width": 800,
+        "x": 100,
+        "y": 100
+      },
+      "children": [
+        {
+          "bounds": {
+            "height": 20,
+            "width": 300,
+            "x": 150,
+            "y": 10
+          },
+          "link": "otherPage",
+          "style": {
+            "background": "#90ff90",
+            "border": "2px solid red"
+          }
+        },
+        {
+          "bounds": {
+            "height": 20,
+            "width": 300,
+            "x": 150,
+            "y": 200
+          },
+          "link": "/",
+          "style": {
+            "background": "#bbbbbb",
+            "border": "2px dashed blue"
+          }
+        }
+      ],
+      "zoneId": "rootZone"
+    },
+    "otherPage": {
+      "bounds": {
+        "height": 200,
+        "width": 200,
+        "x": 50,
+        "y": 50
+      },
+      "children": [
+        {
+          "bounds": {
+            "height": 50,
+            "width": 50,
+            "x": 20,
+            "y": 20
+          },
+          "link": "/"
+        }
+      ],
+      "style": {
+        "background": "yellow",
+        "border": "none"
+      }
+    }
+  },
+  "pageHeight": 1080,
+  "pageWidth": 1920,
+  "rootPath": "/"
+}

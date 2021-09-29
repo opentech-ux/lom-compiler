@@ -1,15 +1,19 @@
-# Ignore hidden files
-.*
-
 # Ignore iml files
 *.iml
 
 # Ignore npm generated folders
-/node_modules
-/generated-src
-/build
+.nyc_output/
+node_modules/
+build/
+
+
+# IDE folders
+.vscode/
+.github/
+
 
 !.gitignore
 !.gitattributes
 !.gitkeep
 !.gitlab-ci.yml
+!.github/workflows/

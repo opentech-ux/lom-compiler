@@ -1,25 +1,30 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": [
-      "es6",
-      "es2015",
-      "dom"
-    ],
     "declaration": true,
-    "outDir": "build/lib",
-    "rootDirs": [
-      "src",
-      "build/generated-src"
-    ],
-    "strict": true,
-    "types": [
-      "node",
-      "mocha",
-      "chai"
-    ],
     "esModuleInterop": true,
-    "resolveJsonModule": true
-  }
+    "forceConsistentCasingInFileNames": true,
+    "lib": [
+      "ES6",
+      "ES2015",
+      "DOM"
+    ],
+    "module": "CommonJS",
+    "outDir": "build/lib",
+    "resolveJsonModule": true,
+    "rootDirs": [
+      "src/",
+      "build/json-schema/"
+    ],
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ES2015",
+  },
+  "exclude": [
+    "build/lib",
+    "node_modules",
+    "tests/**/*.test.ts"
+  ],
+  "include": [
+    "src"
+  ]
 }

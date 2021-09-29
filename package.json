@@ -1,4 +1,8 @@
 {
+  "author": "Pierre-Louis JAEGER <pjr@devalgo.com>",
+  "bugs": {
+    "url": "https://github.com/opentech-ux/lom-compiler/issues"
+  },
   "dependencies": {
     "create-html-element": "^3.0.0"
   },
@@ -13,40 +17,53 @@
     "mocha": "^9.1.2",
     "nodemon": "^2.0.13",
     "nyc": "^15.1.0",
+    "prettier": "2.4.1",
     "rimraf": "^3.0.2",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3"
   },
+  "directories": {
+    "test": "tests"
+  },
+  "files": [
+    "build/**/*"
+  ],
+  "homepage": "https://github.com/opentech-ux/lom-compiler#readme",
   "keywords": [
     "LOM",
     "wireframe",
     "compiler"
   ],
   "license": "Apache-2.0",
+  "main": "build/lib/LomCompiler.js",
   "maintainers": [
-    {
-      "email": "pjr@devalgo.com",
-      "name": "Pierre-Louis JAEGER"
-    },
-    {
-      "email": "ruben.conde@ux-key.com",
-      "name": "Ruben CONDE"
-    }
+    "Pierre-Louis JAEGER <pjr@devalgo.com>",
+    "Ruben CONDE <ruben.conde@ux-key.com>"
   ],
   "name": "@opentech-ux/lom-compiler",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/opentech-ux/lom-compiler"
+    "url": "git+https://github.com/opentech-ux/lom-compiler.git"
   },
   "scripts": {
-    "build": "npm run generate-model && npm run compile-ts",
-    "clean": "rimraf ./build",
-    "compile-ts": "tsc -p .",
-    "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test",
-    "create": "npm run clean && npm run build && npm run test",
-    "generate-model": "json2ts -i ./schemas/ -o ./build/generated-src/",
-    "refresh": "rimraf ./node_modules ./package-lock.json && npm install",
-    "test": "mocha -r ts-node/register tests/**/*.test.ts"
+    "build": "npm run build:clean && npm run model:generate && npm run build:ts",
+    "build:clean": "rimraf ./build",
+    "build:ts": "tsc -p .",
+    "deps:refresh": "rimraf ./node_modules ./package-lock.json && npm install",
+    "model:generate": "json2ts -i ./schemas/ -o ./build/json-schema/",
+    "pkg:create": "npm run build && npm run test",
+    "prettier:format": "prettier \"./**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore -l --write",
+    "publish:major": "npm run pkg:create && npm version major && npm publish",
+    "publish:minor": "npm run pkg:create && npm version minor && npm publish",
+    "publish:patch": "npm run pkg:create && npm version patch && npm publish",
+    "test": "npm run test:mocha && npm run test:prettier",
+    "test:coverage": "nyc --report-dir .nyc_output/html -r html -r text -x \"tests/*.test.ts\" npm run test:mocha",
+    "test:mocha": "mocha -r ts-node/register tests/**/*.test.ts",
+    "test:prettier": "prettier \"./**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore -l"
   },
-  "version": "0.0.1"
+  "types": "build/lib/LomCompiler.d.ts",
+  "version": "0.0.0"
 }
