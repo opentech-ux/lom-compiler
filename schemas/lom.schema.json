@@ -1,0 +1,112 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "https://example.com/schema/lom.schema.json",
+    "type": "object",
+    "title": "LOM",
+    "description": "Specification of the wireframe of a single Web page",
+    "additionalProperties": true,
+    "properties": {
+        "rootPath": {
+            "$ref": "#/$defs/Path"
+        },
+        "pageWidth": {
+            "$ref": "#/$defs/Dimension"
+        },
+        "pageHeight": {
+            "$ref": "#/$defs/Dimension"
+        },
+        "loms": {
+            "type": "object",
+            "additionalProperties": false,
+            "patternProperties": {
+                "/?([a-zA-Z0-9._-]+)(/[a-zA-Z0-9._-]+)*": {
+                    "$ref": "#/$defs/Zone"
+                }
+            }
+        }
+    },
+    "required": [
+        "rootPath",
+        "pageWidth",
+        "pageHeight",
+        "loms"
+    ],
+    "$defs": {
+        "Dimension": {
+            "type": "number",
+            "description": "Size of a graphical element along an axis",
+            "minimum": 0
+        },
+        "Path": {
+            "type": "string",
+            "description": "A slash separated path",
+            "pattern": "/?([a-zA-Z0-9._-]+)(/[a-zA-Z0-9._-]+)*"
+        },
+        "Bounds": {
+            "type": "object",
+            "description": "Coordinates of an axis-aligned rectangle",
+            "additionalProperties": false,
+            "properties": {
+                "x": {
+                    "type": "number",
+                    "description": "x coordinate relative to parent zone"
+                },
+                "y": {
+                    "type": "number",
+                    "description": "y coordinate relative to parent zone"
+                },
+                "width": {
+                    "$ref": "#/$defs/Dimension"
+                },
+                "height": {
+                    "$ref": "#/$defs/Dimension"
+                }
+            },
+            "required": [
+                "x",
+                "width",
+                "height",
+                "y"
+            ]
+        },
+        "Zone": {
+            "type": "object",
+            "description": "Representation of a zone on screen",
+            "properties": {
+                "zoneId": {
+                    "type": "string",
+                    "description": "Unique ID of this zone"
+                },
+                "bounds": {
+                    "$ref": "#/$defs/Bounds"
+                },
+                "children": {
+                    "type": "array",
+                    "description": "List of children zones of this zone",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/$defs/Zone"
+                    }
+                },
+                "link": {
+                    "$ref": "#/$defs/Path"
+                },
+                "style": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "background": {
+                            "type": "string"
+                        },
+                        "border": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "required": [
+                "bounds"
+            ]
+        }
+    }
+}
