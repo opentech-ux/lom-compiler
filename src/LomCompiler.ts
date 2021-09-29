@@ -50,7 +50,7 @@ export class LomCompiler implements ILomCompiler {
     * If the `outputDir` function is not called, a `build` folder will be created inside the base
     * directory to store the compilation result.
     */
-   public constructor(baseDir: string = '.') {
+   public constructor(baseDir = '.') {
       const isValidDirectory = fs.existsSync(baseDir) && fs.lstatSync(baseDir).isDirectory();
 
       if (!isValidDirectory) throw new Error(`${baseDir} is not a valid directory.`);
@@ -62,9 +62,9 @@ export class LomCompiler implements ILomCompiler {
    public source(...sourceFiles: string[]): LomCompiler {
       sourceFiles.forEach((filePath) => {
          const realFilePath = fs.realpathSync(path.resolve(this._baseDirectory, filePath));
-         const filePathIsDirectory = fs.lstatSync(realFilePath).isDirectory();
+         const isFilePathIsDirectory = fs.lstatSync(realFilePath).isDirectory();
 
-         if (filePathIsDirectory) {
+         if (isFilePathIsDirectory) {
             this._sourceFiles.push(
                ...fs
                   .readdirSync(realFilePath)
@@ -128,10 +128,10 @@ export class LomCompiler implements ILomCompiler {
    private _buildZoneDiv(
       zone: Zone,
       lomPath: string,
-      indent: string = '\n                        '
+      indent = '\n                        '
    ): string {
       const b = zone.bounds;
-      const subIndent = indent + '  ';
+      const subIndent = `${indent}  `;
 
       let css = `position:absolute; left:${b.x}px; top:${b.y}px; width:${b.width}px; height:${b.height}px;`;
       css += ` border:${zone.style?.border || '1px solid black'};`;
@@ -162,7 +162,7 @@ export class LomCompiler implements ILomCompiler {
       return createHtmlElement({
          name: 'div',
          html: content,
-         attributes: attributes,
+         attributes,
       });
    }
 }

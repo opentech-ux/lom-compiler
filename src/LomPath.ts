@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare interface String {
    /**
     * @description Adds a leading slash to the string value if needed.
@@ -13,10 +14,10 @@ declare interface String {
    unRooted(): string;
 }
 
-String.prototype.rooted = function () {
+String.prototype.rooted = function root() {
    return this.startsWith('/') ? (this as string) : `/${this}`;
 };
 
-String.prototype.unRooted = function () {
+String.prototype.unRooted = function unRoot() {
    return this.startsWith('/') ? this.substr(1) : (this as string);
 };
