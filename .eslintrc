@@ -1,0 +1,117 @@
+{
+    "env": {
+        "browser": true,
+        "mocha": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "airbnb",
+        "plugin:prettier/recommended",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "createDefaultProgram": true,
+        "ecmaVersion": 2021,
+        "project": "./tsconfig.json",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "prettier"
+    ],
+    "rules": {
+        "@typescript-eslint/indent": [
+            "error",
+            3
+        ],
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "format": [
+                    "camelCase"
+                ],
+                "selector": "default"
+            },
+            {
+                "format": [
+                    "PascalCase"
+                ],
+                "selector": "class"
+            },
+            {
+                "format": [
+                    "UPPER_CASE"
+                ],
+                "modifiers": [
+                    "static",
+                    "readonly"
+                ],
+                "selector": "property"
+            },
+            {
+                "format": [
+                    "UPPER_CASE"
+                ],
+                "selector": "enumMember"
+            },
+            {
+                "format": [
+                    "PascalCase"
+                ],
+                "prefix": [
+                    "is",
+                    "should",
+                    "has",
+                    "can",
+                    "did",
+                    "will"
+                ],
+                "selector": "variable",
+                "types": [
+                    "boolean"
+                ]
+            },
+            {
+                "format": [
+                    "camelCase"
+                ],
+                "leadingUnderscore": "require",
+                "modifiers": [
+                    "private"
+                ],
+                "selector": "memberLike"
+            },
+            {
+                "format": [
+                    "PascalCase"
+                ],
+                "selector": "typeLike"
+            }
+        ],
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/no-unused-vars": "error",
+        "import/extensions": "off",
+        "import/no-extraneous-dependencies": "off",
+        "import/no-unresolved": "off",
+        "import/prefer-default-export": "off",
+        "no-extend-native": [
+            "error",
+            {
+                "exceptions": [
+                    "String"
+                ]
+            }
+        ],
+        "no-underscore-dangle": "off",
+        "no-unused-vars": "off",
+        "prettier/prettier": "error"
+    },
+    "settings": {
+        "react": {
+            "version": "999.999.999" //Workaround
+        }
+    }
+}
