@@ -49,7 +49,7 @@
     "url": "git+https://github.com/opentech-ux/lom-compiler.git"
   },
   "scripts": {
-    "build": "npm run model:generate && npm run build:ts",
+    "build": "npm run build:clean && npm run model:generate && npm run build:ts",
     "build:clean": "rimraf ./build",
     "build:ts": "tsc -p .",
     "deps:refresh": "rimraf ./node_modules ./package-lock.json && npm install",

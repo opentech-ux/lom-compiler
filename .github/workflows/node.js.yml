@@ -98,3 +98,6 @@ jobs:
 
          - name: Mocha
            run: npm run test:mocha
+
+         - name: Coverage
+           run: npm run test:coverage
