@@ -35,7 +35,7 @@
     "compiler"
   ],
   "license": "Apache-2.0",
-  "main": "build/lib/src/LomCompiler.js",
+  "main": "build/lib/LomCompiler.js",
   "maintainers": [
     "Pierre-Louis JAEGER <pjr@devalgo.com>",
     "Ruben CONDE <ruben.conde@ux-key.com>"
@@ -57,10 +57,11 @@
     "pkg:create": "npm run build:clean && npm run build && npm run test",
     "pkg:publish": "npm run pkg:create && npm version patch && npm publish",
     "prettier:format": "prettier \"./**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore -l --write",
-    "test:coverage": "nyc --report-dir .nyc_output/html -r html -x \"tests/*.test.ts\" npm run test:mocha",
+    "test": "npm run test:mocha && npm run test:prettier",
+    "test:coverage": "nyc --report-dir .nyc_output/html -r html -r text -x \"tests/*.test.ts\" npm run test:mocha",
     "test:mocha": "mocha -r ts-node/register tests/**/*.test.ts",
     "test:prettier": "prettier \"./**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore -l"
   },
-  "types": "build/lib/src/LomCompiler.d.ts",
+  "types": "build/lib/LomCompiler.d.ts",
   "version": "0.0.0"
 }
