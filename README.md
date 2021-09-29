@@ -1,14 +1,12 @@
-# OpenTech UX LOM Captor
+# OpenTech UX LOM Compiler
 
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fopentech-ux%2Flom-compiler%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/opentech-ux/lom-compiler/goto?ref=master)
 
--  [OpenTech UX LOM Captor](#opentech-ux-lom-captor)
+-  [OpenTech UX LOM Compiler](#opentech-ux-lom-compiler)
    -  [Description](#description)
    -  [Installation](#installation)
-   -  [Configuration](#configuration)
-      -  [Endpoint](#endpoint)
-      -  [Custom attribute](#custom-attribute)
-   -  [Launching](#launching)
+   -  [Importing](#importing)
+   -  [Uses examples](#uses-examples)
    -  [License](#license)
 
 ## Description
