@@ -1,5 +1,7 @@
 # OpenTech UX LOM Compiler
 
+[![npm version](https://badgen.net/npm/v/@opentech-ux/lom-compiler)](https://www.npmjs.com/package/@opentech-ux/lom-compiler)
+[![npm license](https://badgen.net/npm/license/@opentech-ux/lom-compiler)](https://www.npmjs.com/package/@opentech-ux/lom-compiler)
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fopentech-ux%2Flom-compiler%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/opentech-ux/lom-compiler/goto?ref=master)
 
 -  [OpenTech UX LOM Compiler](#opentech-ux-lom-compiler)
@@ -21,7 +23,7 @@ generate a series of HTML files that represent a simulation of the navigation on
 ## Installation
 
 ```bash
-npm i @opentech-ux/lom-compiler
+npm install @opentech-ux/lom-compiler
 ```
 
 ## Importing
@@ -46,10 +48,10 @@ import { LomCompiler } from '@opentech-ux/lom-compiler';
    │  ├─ json/
    │  │  ├─ basic-lom/
    │  │  │  ├─ basic.lom.json
-   │  │  ├─ script-lom/
+   │  │  ├─ multi-lom/
    │  │  │  ├─ basic.lom.json
    │  │  │  ├─ script.lom.json
-   │  │  ├─ multi-lom/
+   │  │  ├─ script-lom/
    │  │  │  ├─ script.lom.json
    ├─ index.js
    ```
@@ -126,10 +128,10 @@ import { LomCompiler } from '@opentech-ux/lom-compiler';
    │  ├─ json/
    │  │  ├─ basic-lom/
    │  │  │  ├─ basic.lom.json
-   │  │  ├─ script-lom/
+   │  │  ├─ multi-lom/
    │  │  │  ├─ basic.lom.json
    │  │  │  ├─ script.lom.json
-   │  │  ├─ multi-lom/
+   │  │  ├─ script-lom/
    │  │  │  ├─ script.lom.json
    ├─ index.js
    ```
